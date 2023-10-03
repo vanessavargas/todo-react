@@ -25,6 +25,7 @@ project-root/
   │   ├── index.js 
   ├── package.json         (configurações e dependências do projeto) 
   ├── README.md            (documentação do projeto)
+  ├── tailwind.config.js   (configurações do Tailwind)
   └── .gitignore           (lista de arquivos a serem ignorados pelo Git)
 
 ```
