@@ -3,7 +3,7 @@
 Requisitos do Projeto:
 - Aplicar o Clean Code (Obrigatório)
 - React JS
-- Framework CSS
+- Tailwind CSS
 - Paginação de dados nas telas de consultas
 - Autorizar TODAS as requisições via token JWT
 - Usar responsividade
