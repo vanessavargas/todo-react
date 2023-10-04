@@ -17,13 +17,21 @@ Requisitos do Projeto:
 
 project-root/
   ├── node_modules/       (dependências do projeto)
-  ├── public/       
-  │   │    └── index.html  
-  ├── src/                 
+  ├── public/
+  │   └── index.html
+  ├── src/
+  │   ├── assets/
+  │   │   └── images/
+  │   │       └── image1.jpg
+  │   ├── pages/
+  │   │   ├── home/
+  │   │   │   └── components/
+  │   │   │       └── ModalLogin.jsx
+  │   │   └── index.jsx
   │   ├── App.jsx
   │   ├── index.css
-  │   ├── index.js 
-  ├── package.json         (configurações e dependências do projeto) 
+  │   ├── index.js
+  ├── package.json         (configurações e dependências do projeto)
   ├── README.md            (documentação do projeto)
   ├── tailwind.config.js   (configurações do Tailwind)
   └── .gitignore           (lista de arquivos a serem ignorados pelo Git)
