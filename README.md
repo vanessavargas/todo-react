@@ -31,6 +31,7 @@ project-root/
   │   │   └── dashboard/
   │   │        └── index.jsx
   │   ├── App.jsx
+  │   ├── routes.js
   │   ├── index.css
   │   └── index.js
   ├── package.json         (configurações e dependências do projeto)
