@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 export default function Modal({ open, onClose }) {
   const handleOnClose = (e) => {
@@ -27,9 +28,11 @@ export default function Modal({ open, onClose }) {
             className="border border-principal-color p-2 rounded-lg"
             placeholder="Insira sua senha"
           />
-          <button className="bg-light-color text-principal-color m-4 border-2 border-light-color hover:border-medium-color p-2 rounded-lg font-bold">
-            Entrar
-          </button>
+          <Link to="/dashboard">
+            <button className="bg-light-color text-principal-color m-4 border-2 border-light-color hover:border-medium-color p-2 rounded-lg font-bold">
+              Entrar
+            </button>
+          </Link>
         </div>
       </div>
     </div>

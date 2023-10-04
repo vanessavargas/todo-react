@@ -25,12 +25,14 @@ project-root/
   │   │       └── image1.jpg
   │   ├── pages/
   │   │   ├── home/
-  │   │   │   └── components/
-  │   │   │       └── ModalLogin.jsx
-  │   │   └── index.jsx
+  │   │   │    ├── components/
+  │   │   │    │     └── ModalLogin.jsx
+  │   │   │    └── index.jsx
+  │   │   └── dashboard/
+  │   │        └── index.jsx
   │   ├── App.jsx
   │   ├── index.css
-  │   ├── index.js
+  │   └── index.js
   ├── package.json         (configurações e dependências do projeto)
   ├── README.md            (documentação do projeto)
   ├── tailwind.config.js   (configurações do Tailwind)

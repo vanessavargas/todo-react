@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import image1 from "../assets/images/image1.jpg";
-import Modal from "./home/components/ModalLogin";
+import image1 from "../../assets/images/image1.jpg";
+import Modal from "./components/ModalLogin";
 
 const HomePage = () => {
   const [open, setOpen] = useState(false);

@@ -1,9 +1,9 @@
-import HomePage from "./pages";
+import Rotas from "./routes";
 
 export default function App() {
   return (
     <div className="App">
-      <HomePage/>
+      <Rotas/>
     </div>
   );
 }
