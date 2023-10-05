@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import image1 from "../../assets/images/image1.jpg";
-import Modal from "./components/ModalLogin";
+import FormLogin from "./components/FormLogin";
 
 const HomePage = () => {
   const [open, setOpen] = useState(false);
@@ -20,7 +20,7 @@ const HomePage = () => {
           </h2>
           <button
             onClick={() => setOpen(true)}
-            className="bg-light-color text-principal-color mt-4 border-2 border-light-color hover:border-medium-color p-6 rounded-lg font-bold"
+            className="mt-4 p-4 rounded-lg font-semibold leading-6 text-white hover:text-principal-color  shadow-sm bg-medium-color hover:bg-light-color focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-medium-color"
           >
             COMEÇAR AGORA
           </button>
@@ -35,7 +35,7 @@ const HomePage = () => {
           className="md:w-2/3 w-1/3 hover:md:w-3/5"
         />
       </div>
-      <Modal onClose={handleOnClose} open={open} />
+      <FormLogin onClose={handleOnClose} open={open} />
     </div>
   );
 };
