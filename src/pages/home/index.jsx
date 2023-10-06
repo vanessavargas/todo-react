@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import image1 from "../../assets/images/image1.jpg";
-import FormLogin from "./components/FormLogin";
+import LoginForm from "./components/LoginForm";
 
 const HomePage = () => {
   const [open, setOpen] = useState(false);
@@ -35,7 +35,7 @@ const HomePage = () => {
           className="md:w-2/3 w-1/3 hover:md:w-3/5"
         />
       </div>
-      <FormLogin onClose={handleOnClose} open={open} />
+      <LoginForm onClose={handleOnClose} open={open} />
     </div>
   );
 };

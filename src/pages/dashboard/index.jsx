@@ -24,7 +24,6 @@ const Dashboard = () => {
       {/* Coluna esquerda */}
       <section className="flex items-start justify-center bg-principal-color md:p-12 mb-12 md:mb-0 sm:w-1/2 sm:h-screen h-1/2">
         
-      <Calendar />
         <div className="text-center p-6">
         
           <h1 className="text-light-color text-4xl font-bold">Olá :) !!</h1>
