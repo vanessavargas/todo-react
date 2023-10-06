@@ -8,9 +8,6 @@ export default class LoginForm extends React.Component {
     super(props);
     this.emailEl = React.createRef();
     this.passwordEl = React.createRef();
-    this.state = {
-      show: false,
-    };
   }
 
   submitHandler = (event) => {
@@ -33,7 +30,7 @@ export default class LoginForm extends React.Component {
       `,
     };
 
-    fetch("http://localhost:3000/graphql", {
+    fetch("http://localhost:8000/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {

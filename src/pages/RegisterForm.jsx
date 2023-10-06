@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 export default class RegisterForm extends React.Component {
   constructor(props) {
@@ -12,17 +12,16 @@ export default class RegisterForm extends React.Component {
 
   handleSuccess = () => {
     Swal.fire({
-        icon: 'success',
-        title: 'Cadastro realizado com sucesso!',
-        showConfirmButton: true,
-        confirmButtonText: 'Ok!',
+      icon: "success",
+      title: "Cadastro realizado com sucesso!",
+      showConfirmButton: true,
+      confirmButtonText: "Ok!",
     }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.replace('/');
-          }
-      })
+      if (result.isConfirmed) {
+        window.location.replace("/");
+      }
+    });
   };
-  
 
   submitHandler = (event) => {
     event.preventDefault();
@@ -30,7 +29,11 @@ export default class RegisterForm extends React.Component {
     const email = this.emailEl.current.value;
     const password = this.passwordEl.current.value;
 
-    if (userName.trim().lenght === 0 ||email.trim().lenght === 0 || password.trim().lenght === 0) {
+    if (
+      userName.trim().lenght === 0 ||
+      email.trim().lenght === 0 ||
+      password.trim().lenght === 0
+    ) {
       return;
     }
 
@@ -54,14 +57,17 @@ export default class RegisterForm extends React.Component {
       },
     });
     this.handleSuccess();
-};
+  };
 
   render() {
     return (
       <div>
-        <Link to='/' className="absolute top-4 left-4">
-  <p className="font-semibold text-medium-color hover:text-light-color"><span className="text-lg">&#x2190; </span>  Retornar à página principal</p>
-</Link>
+        <Link to="/" className="absolute top-4 left-4">
+          <p className="font-semibold text-medium-color hover:text-light-color">
+            <span className="text-lg">&#x2190; </span> Retornar à página
+            principal
+          </p>
+        </Link>
 
         <div className="flex min-h-screen flex-col justify-center items-center px-6 py-2">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -72,7 +78,7 @@ export default class RegisterForm extends React.Component {
 
           <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" onSubmit={this.submitHandler}>
-            <div>
+              <div>
                 <label
                   for="userName"
                   className="block text-sm font-medium leading-6 text-principal-color"
@@ -88,7 +94,7 @@ export default class RegisterForm extends React.Component {
                   className="mt-2 block w-full rounded-md border-0 p-1.5  text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
                 />
               </div>
-              
+
               <div>
                 <label
                   for="email"

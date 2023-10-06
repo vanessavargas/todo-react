@@ -1,66 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import TodoForm from "./todos/TodoForm";
-import Modal from "../../components/Modal";
+import CreateTodo from "./todos/CreateTodo";
+import TodoList from "./todos/TodoIList";
+import { fetchTodos } from "./todos/TodoContext";
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
-  const [isTodoFormOpen, setIsTodoFormOpen] = useState(false);
 
-  const addTodo = (todo) => {
-    setTodos([...todos, todo]);
+  const fetchAndSetTodos = async () => {
+    try {
+      const data = await fetchTodos();
+      setTodos(data);
+    } catch (error) {
+      console.error("Erro ao buscar as anotações:", error.message);
+    }
   };
 
-  const handleOpenTodoForm = () => {
-    setIsTodoFormOpen(true);
-  };
+  useEffect(() => {
+    fetchAndSetTodos();
+  }, []);
 
-  const handleCloseTodoForm = () => {
-    setIsTodoFormOpen(false);
+  const updateTodoList = async () => {
+    await fetchAndSetTodos();
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
+    <div className="grid grid-cols-1 md:flex h-screen">
       {/* Coluna esquerda */}
-      <section className="flex items-start justify-center bg-principal-color md:p-12 mb-12 md:mb-0 sm:w-1/2 sm:h-screen h-1/2">
-        
-        <div className="text-center p-6">
-        
-          <h1 className="text-light-color text-4xl font-bold">Olá :) !!</h1>
-          <p className="my-4 text-medium-color">
-            Esta é a página onde a mágica acontece
+      <section className="flex md:flex-col gap-24 items-center justify-center bg-principal-color md:mb-0 md:w-1/2 md:h-screen h-48">
+        <div className="md:block hidden text-center p-6">
+          <h3 className="text-light-color font-bold">
+            Você precisa fazer aquilo que pensa que não é capaz de fazer.
+          </h3>
+          <p>
+            <i>Eleanor Roosevelt</i>
           </p>
-          <button
-            onClick={handleOpenTodoForm}
-            className="flex w-full justify-center rounded-md bg-medium-color px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:text-principal-color shadow-sm hover:bg-light-color focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-medium-color"
-          >
-            Inserir anotação
-          </button>
-          <Modal
-            open={isTodoFormOpen}
-            onClose={handleCloseTodoForm}
-            content={
-              <TodoForm addTodo={addTodo} onClose={handleCloseTodoForm} />
-            }
-          />
         </div>
-        <Link className="text-light-color text-center self-end" to="/">
-          Sair
-        </Link>
+        <CreateTodo updateTodoList={updateTodoList} />
+        <div>
+          <Link className="text-light-color text-center" to="/">
+            Sair
+          </Link>
+        </div>
       </section>
 
       {/* Coluna direita */}
-      <section>
-        <div className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-400">
-              Suas anotações
-            </h1>
-          </div>
-        </div>
-        <div>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8"></div>
-        </div>
+      <section className="md:w-10/12">
+        <TodoList todos={todos} />
       </section>
     </div>
   );
