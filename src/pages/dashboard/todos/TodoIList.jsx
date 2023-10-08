@@ -29,7 +29,7 @@ const TodoList = () => {
 
   if (!todos || todos.length === 0) {
     return (
-      <div className="flex justify-center sm:mt-48 sm:ml-0 ml-40 items-center h-full">
+      <div className="flex justify-center items-center h-full">
         <h1 className="sm:text-3xl font-bold text-gray-400">
           Não há anotações
         </h1>
@@ -38,12 +38,13 @@ const TodoList = () => {
   }
 
   return (
-    <div  className="flex flew-wrap gap-3 p-3">
+    <div  className="w-100 mt-4 flex flex-wrap gap-2 justify-around p-3 m-2">
       {todos.map((todo) => (
         <TodoItem
           key={todo._id}
           todo={todo}
           deleteTodo={() => handleDeleteTodo(todo._id)}
+      
         />
       ))}
     </div>

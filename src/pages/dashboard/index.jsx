@@ -25,9 +25,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:flex h-screen">
+    <div className="flex md:flex-row flex-wrap h-screen">
       {/* Coluna esquerda */}
-      <section className="flex md:flex-col gap-24 items-center justify-center bg-principal-color md:mb-0 md:w-1/2 md:h-screen h-48">
+      <section className="flex md:flex-col w-full md:w-1/4 gap-24 items-center justify-center bg-principal-color md:mb-0 md:h-screen h-48">
         <div className="md:block hidden text-center p-6">
           <h3 className="text-light-color font-bold">
             Você precisa fazer aquilo que pensa que não é capaz de fazer.
@@ -45,7 +45,7 @@ const Dashboard = () => {
       </section>
 
       {/* Coluna direita */}
-      <section className="md:w-10/12">
+      <section className="w-full md:w-3/4">
         <TodoList todos={todos} />
       </section>
     </div>
