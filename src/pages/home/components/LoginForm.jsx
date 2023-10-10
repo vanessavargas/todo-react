@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect  } from "react-router-dom";
 import Modal from "../../../components/Modal";
 import image1 from "../../../assets/images/image1.jpg";
 
 export default class LoginForm extends React.Component {
+  
   constructor(props) {
     super(props);
     this.emailEl = React.createRef();
@@ -22,9 +23,8 @@ export default class LoginForm extends React.Component {
     const requestBody = {
       query: `
         mutation {
-          createUser (userName: "${email}", password: "${password}"){
-            _id
-            userName
+          login (email: "${email}", password: "${password}"){
+            token
           }
         }
       `,
@@ -36,6 +36,15 @@ export default class LoginForm extends React.Component {
       headers: {
         "Content-Type": "application/json",
       },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data && data.data && data.data.login) {
+        return redirect("/dashboard");
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao fazer login:", error);
     });
   };
 
@@ -49,7 +58,7 @@ export default class LoginForm extends React.Component {
               className="mx-auto h-20 w-auto"
               src={image1}
               alt="Logo de Anotações"
-            />
+            /> 
             <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-principal-color">
               Acesse sua conta
             </h2>
@@ -106,14 +115,14 @@ export default class LoginForm extends React.Component {
               </div>
 
               <div>
-                <Link to="/dashboard">
+               
                   <button
-                    // type="submit"
+                    type="submit"
                     className="flex w-full justify-center rounded-md bg-medium-color px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:text-principal-color shadow-sm hover:bg-light-color focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-medium-color"
                   >
                     Entrar
                   </button>
-                </Link>
+                  <Link to="/dashboard">  </Link>
               </div>
             </form>
             <div className="m-4 text-center text-sm">
