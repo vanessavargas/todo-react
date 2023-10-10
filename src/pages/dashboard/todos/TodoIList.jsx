@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchTodos, deleteTodo } from "./TodoContext";
+import { fetchTodos, deleteTodo, updateTodo } from "./TodoContext";
 import TodoItem from "./TodoItem";
 
 const TodoList = () => {
@@ -27,6 +27,15 @@ const TodoList = () => {
     }
   };
 
+  const handleUpdateTodo = async (_id, description) => {
+    try {
+      await updateTodo(_id, description);
+      fetchAndSetTodos();
+    } catch (error) {
+      console.error("Erro ao atualizar a anotação:", error.message);
+    }
+  };
+
   if (!todos || todos.length === 0) {
     return (
       <div className="flex justify-center items-center h-full">
@@ -41,11 +50,12 @@ const TodoList = () => {
     <div  className="w-100 mt-4 flex flex-wrap gap-2 justify-around p-3 m-2">
       {todos.map((todo) => (
         <TodoItem
-          key={todo._id}
-          todo={todo}
-          deleteTodo={() => handleDeleteTodo(todo._id)}
+        key={todo._id}
+        todo={todo}
+        deleteTodo={() => handleDeleteTodo(todo._id)}
+        updateTodo={(newDescription) => handleUpdateTodo(todo._id, newDescription)} 
+      />
       
-        />
       ))}
     </div>
   );
