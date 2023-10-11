@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-/* const CreateTodo = ({ createTodo }) => {
-  const descriptionEl = useRef(null);
+const CreateTodo = ({ createTodo }) => {
+  const [description, setDescription] = useState("");
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const description = descriptionEl.current.value;
 
     if (description.trim().length === 0) {
       return;
@@ -13,33 +16,11 @@ import React, { useState } from 'react';
 
     try {
       await createTodo(description);
-      descriptionEl.current.value = '';
-
+      setDescription("");
     } catch (error) {
       console.error("Erro ao criar a anotação:", error.message);
     }
-  }; */
-  const CreateTodo = ({ createTodo }) => {
-    const [description, setDescription] = useState('');
-
-    const handleDescriptionChange = (event) => {
-      setDescription(event.target.value);
-    };
-  
-    const submitHandler = async (event) => {
-      event.preventDefault();
-  
-      if (description.trim().length === 0) {
-        return;
-      }
-  
-      try {
-        await createTodo(description);  
-        setDescription(''); 
-      } catch (error) {
-        console.error("Erro ao criar a anotação:", error.message);
-      }
-    };
+  };
 
   return (
     <div className="flex flex-col justify-center items-center px-6 py-2">
@@ -50,7 +31,7 @@ import React, { useState } from 'react';
               htmlFor="description"
               className="block text-sm font-medium leading-6 text-medium-color"
             >
-              Descrição
+              Insira uma anotação
             </label>
             <textarea
               id="description"
@@ -77,5 +58,3 @@ import React, { useState } from 'react';
 };
 
 export default CreateTodo;
-
-
