@@ -1,6 +1,7 @@
 # To Do React JS
 
 Requisitos do Projeto:
+
 - Aplicar o Clean Code (Obrigatório)
 - React JS
 - Tailwind CSS
@@ -10,6 +11,7 @@ Requisitos do Projeto:
 - Permitir que o usuário possa visualizar os dados em modo de card ou Datatable nas telas de consulta
 
 ## Tecnologias
+
 - React JS
 - Tailwind CSS
 
@@ -40,3 +42,8 @@ project-root/
   └── .gitignore           (lista de arquivos a serem ignorados pelo Git)
 
 ```
+
+<hr>
+<div align="center">
+Desenvolvido com ❤️ por VanessaVargas
+</div>

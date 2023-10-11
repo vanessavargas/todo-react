@@ -65,12 +65,12 @@ const RegisterForm = () => {
         "Content-Type": "application/json",
       },
     })
-    .then((response) => response.json())
+      .then((response) => response.json())
       .then(() => {
         handleSuccess();
       })
       .catch((error) => {
-        console.error('Erro ao fazer cadastro:', error);
+        console.error("Erro ao fazer cadastro:", error);
       });
   };
 
@@ -145,7 +145,10 @@ const RegisterForm = () => {
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium leading-6 text-principal-color">
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium leading-6 text-principal-color"
+              >
                 Confirmar Senha
               </label>
               <input

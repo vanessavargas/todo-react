@@ -25,7 +25,7 @@ const HomePage = () => {
           >
             COMEÇAR AGORA
           </button>
-          <Link to='/dashboard'>Todos</Link>
+          <Link to="/dashboard">Todos</Link>
         </div>
       </div>
 
