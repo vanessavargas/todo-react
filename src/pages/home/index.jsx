@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import image1 from "../../assets/images/image1.jpg";
 import LoginForm from "./components/LoginForm";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [open, setOpen] = useState(false);
@@ -24,6 +25,7 @@ const HomePage = () => {
           >
             COMEÇAR AGORA
           </button>
+          <Link to='/dashboard'>Todos</Link>
         </div>
       </div>
 

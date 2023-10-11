@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
-import { createTodo } from './TodoContext';
+import React, { useState } from 'react';
 
-const CreateTodo = ({ updateTodoList }) => {
+/* const CreateTodo = ({ createTodo }) => {
   const descriptionEl = useRef(null);
 
   const submitHandler = async (event) => {
@@ -16,13 +15,31 @@ const CreateTodo = ({ updateTodoList }) => {
       await createTodo(description);
       descriptionEl.current.value = '';
 
-      if (updateTodoList) {
-        updateTodoList();
-      }
     } catch (error) {
       console.error("Erro ao criar a anotação:", error.message);
     }
-  };
+  }; */
+  const CreateTodo = ({ createTodo }) => {
+    const [description, setDescription] = useState('');
+
+    const handleDescriptionChange = (event) => {
+      setDescription(event.target.value);
+    };
+  
+    const submitHandler = async (event) => {
+      event.preventDefault();
+  
+      if (description.trim().length === 0) {
+        return;
+      }
+  
+      try {
+        await createTodo(description);  
+        setDescription(''); 
+      } catch (error) {
+        console.error("Erro ao criar a anotação:", error.message);
+      }
+    };
 
   return (
     <div className="flex flex-col justify-center items-center px-6 py-2">
@@ -39,7 +56,8 @@ const CreateTodo = ({ updateTodoList }) => {
               id="description"
               name="description"
               type="text"
-              ref={descriptionEl}
+              value={description}
+              onChange={handleDescriptionChange}
               required
               className="mt-2 block w-full rounded-md border-0 p-1.5 text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
             />

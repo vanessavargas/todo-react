@@ -5,9 +5,14 @@ import { FaEdit } from 'react-icons/fa';
 const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
   const [showModal, setShowModal] = useState(false);
   const [description, setDescription] = useState(todo.description);
+  const [currentState, setCurrentState] = useState('open');
 
   const handleEditButtonClick = () => {
     setShowModal(true);
+  };
+
+  const handleToggleState = () => {
+    setCurrentState((prevState) => (prevState === 'close' ? 'open' : 'close'));
   };
 
   const handleSaveChanges = async (event) => {
@@ -34,8 +39,13 @@ const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
         <span className="inline-block bg-gray-50 rounded-full p-2">
           <FaHeart/>
         </span>
-        <span className="inline-block bg-green-50 rounded-full p-2 text-sm font-semibold text-gray-700">
-          {todo.state}
+        <span className="inline-block">
+        <button
+            className={`btn ${currentState === 'open' ? 'bg-green-50' : 'bg-red-50'} rounded-full p-2 text-sm font-semibold text-gray-700`}
+            onClick={handleToggleState}
+          >
+            {currentState === 'open' ? 'Open' : 'Close'}
+          </button>
         </span>
         <span className="inline-block ">
           <div>

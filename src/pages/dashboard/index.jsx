@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CreateTodo from "./todos/CreateTodo";
 import TodoList from "./todos/TodoIList";
 import { fetchTodos } from "./todos/TodoContext";
+import imagem from "../../assets/images/image2.png";
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
@@ -20,23 +20,25 @@ const Dashboard = () => {
     fetchAndSetTodos();
   }, []);
 
-  const updateTodoList = async () => {
-    await fetchAndSetTodos();
-  };
-
   return (
-    <div className="flex md:flex-row flex-wrap h-screen">
+    <div className="flex md:flex-row flex-wrap h-screen items-stretch">
       {/* Coluna esquerda */}
-      <section className="flex md:flex-col w-full md:w-1/4 gap-24 items-center justify-center bg-principal-color md:mb-0 md:h-screen h-48">
+      <section className="flex grow md:flex-col w-full md:w-1/4 gap-24 items-center justify-center bg-principal-color md:mb-0 md:h-full h-48">
+        <img
+          className="md:hidden block w-24 h-24"
+          src={imagem}
+          alt="bloco de anotações com lápis"
+        />
+
         <div className="md:block hidden text-center p-6">
-          <h3 className="text-light-color font-bold">
+          <img src={imagem} alt="bloco de anotações com lápis" />
+          <h2 className="text-light-color font-bold">
             Você precisa fazer aquilo que pensa que não é capaz de fazer.
-          </h3>
+          </h2>
           <p>
             <i>Eleanor Roosevelt</i>
           </p>
         </div>
-        <CreateTodo updateTodoList={updateTodoList} />
         <div>
           <Link className="text-light-color text-center" to="/">
             Sair
