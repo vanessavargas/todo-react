@@ -48,11 +48,14 @@ const TodoList = () => {
 
   if (!todos || todos.length === 0) {
     return (
-      <div className="flex justify-center items-center h-full">
-        <h1 className="sm:text-3xl font-bold text-gray-400">
-          Não há anotações
-        </h1>
-      </div>
+      <>
+        <CreateTodo createTodo={handleCreateTodo} />
+        <div className="flex justify-center pt-16">
+          <h1 className="sm:text-3xl font-bold text-gray-400">
+            Não há anotações
+          </h1>
+        </div>
+      </>
     );
   }
 
