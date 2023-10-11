@@ -58,9 +58,9 @@ const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
           {showModal && (
             <div className="fixed inset-0 bd-white flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
               <div className="relative w-80 mx-auto my-6">
-                <div className="rounded-lg shadow-inner bg-white">
-                  <div className="p-4">
-                    <h1 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-principal-color">Editar Todo</h1>
+                <div className="rounded-lg shadow-inner bg-gray-100">
+                  <div className="p-8">
+                    <h1 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-principal-color">Editar Anotação</h1>
                     <form onSubmit={handleSaveChanges}  className="space-y-6">
                       <textarea
                         className="mt-2 block w-full rounded-md border-0 p-1.5  text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
