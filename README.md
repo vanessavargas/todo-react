@@ -1,14 +1,29 @@
-# To Do React JS
+# To Do List - React JS
 
-Requisitos do Projeto:
+<div align="center">
 
-- Aplicar o Clean Code (Obrigatório)
-- React JS
-- Tailwind CSS
+  ## 🛠️ Projeto em Andamento
+
+</div>
+
+## Preview das telas do projeto
+
+<div align="center">
+  <img
+    src="./src/assets/images/GitHub.png"
+    alt="preview das telas do projeto"
+  />
+</div>
+
+## Requisitos do Projeto:
+
+- Aplicar o Clean Code (Obrigatório) ✔️
+- React JS ✔️
+- Framework de estilo ✔️
 - Paginação de dados nas telas de consultas
 - Autorizar TODAS as requisições via token JWT
-- Usar responsividade
-- Permitir que o usuário possa visualizar os dados em modo de card ou Datatable nas telas de consulta
+- Usar responsividade ✔️
+- Permitir que o usuário possa visualizar os dados em modo de card ou Datatable nas telas de consulta ✔️
 
 ## Tecnologias
 
@@ -24,14 +39,24 @@ project-root/
   ├── src/
   │   ├── assets/
   │   │   └── images/
-  │   │       └── image1.jpg
+  │   │       ├── image1.jpg
+  │   │       ├── image2.jpg
+  │   │       └── GitHub.jpg
+  │   ├── components/
+  │   │   └── Modal.jsx
   │   ├── pages/
   │   │   ├── home/
   │   │   │    ├── components/
-  │   │   │    │     └── ModalLogin.jsx
+  │   │   │    │     └── LoginForm.jsx
   │   │   │    └── index.jsx
-  │   │   └── dashboard/
-  │   │        └── index.jsx
+  │   │   ├── dashboard/
+  │   │   │    ├── todos/
+  │   │   │    │     ├── CreateTodo.jsx
+  │   │   │    │     ├── TodoContext.jsx
+  │   │   │    │     ├── TodoList.jsx
+  │   │   │    │     └── TodoItem.jsx
+  │   │   │    └── index.jsx
+  │   │   └── RegisterForm.jsx
   │   ├── App.jsx
   │   ├── routes.js
   │   ├── index.css
