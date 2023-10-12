@@ -1,12 +1,12 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const RegisterForm = () => {
-  const userNameEl = useRef(null);
-  const emailEl = useRef(null);
-  const passwordEl = useRef(null);
-  const confirmPasswordEl = useRef(null);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSuccess = () => {
     Swal.fire({
@@ -23,10 +23,6 @@ const RegisterForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const userName = userNameEl.current.value;
-    const email = emailEl.current.value;
-    const password = passwordEl.current.value;
-    const confirmPassword = confirmPasswordEl.current.value;
 
     if (
       userName.trim().length === 0 ||
@@ -48,14 +44,14 @@ const RegisterForm = () => {
 
     const requestBody = {
       query: `
-          mutation {
-            createUser (userName: "${userName}", email: "${email}",password: "${password}"){
-              _id
-              userName
-              email
-            }
+        mutation {
+          createUser (userName: "${userName}", email: "${email}",password: "${password}"){
+            _id
+            userName
+            email
           }
-        `,
+        }
+      `,
     };
 
     fetch("http://localhost:8000/graphql", {
@@ -102,7 +98,8 @@ const RegisterForm = () => {
                 id="userName"
                 name="userName"
                 type="text"
-                ref={userNameEl}
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
                 required
                 className="mt-2 block w-full rounded-md border-0 p-1.5  text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
               />
@@ -119,8 +116,9 @@ const RegisterForm = () => {
                 id="email"
                 name="email"
                 type="email"
-                ref={emailEl}
-                autocomplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
                 required
                 className="mt-2 block w-full rounded-md border-0 p-1.5  text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
               />
@@ -137,8 +135,8 @@ const RegisterForm = () => {
                 id="password"
                 name="password"
                 type="password"
-                ref={passwordEl}
-                autocomplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
                 required
                 class="block w-full rounded-md border-0 p-1.5 text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
               />
@@ -155,7 +153,8 @@ const RegisterForm = () => {
                 id="confirmPassword"
                 name="confirmPassword"
                 type="password"
-                ref={confirmPasswordEl}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 autoComplete="current-password"
                 required
                 className="block w-full rounded-md border-0 p-1.5 text-principal-color shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-medium-color sm:text-sm sm:leading-6"
