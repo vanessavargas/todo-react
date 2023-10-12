@@ -30,6 +30,9 @@
 - React JS
 - Tailwind CSS
 
+## Back End do projeto
+➪ [API To-Do List Node e GraphQL](https://github.com/vanessavargas/todo-node-graphql)
+
 ```
 
 project-root/
