@@ -6,7 +6,7 @@
 
 </div>
 
-## Preview das telas do projeto
+## Preview
 
 <div align="center">
   <img
@@ -15,7 +15,7 @@
   />
 </div>
 
-## Requisitos do Projeto:
+## Requisitos
 
 - Aplicar o Clean Code (Obrigatório) ✔️
 - React JS ✔️
