@@ -4,7 +4,6 @@ import Modal from "../../../components/Modal";
 import image1 from "../../../assets/images/image1.jpg";
 import Swal from "sweetalert2";
 
-
 export default function LoginForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,14 +41,14 @@ export default function LoginForm(props) {
       .then((response) => response.json())
       .then((data) => {
         console.log("Resposta da requisição:", data);
-        localStorage.setItem(
-          "login",
-          JSON.stringify({
-            login: true,
-            token: data.login,
-          })
-        );
         if (data && data.data && data.data.login) {
+          localStorage.setItem(
+            "login",
+            JSON.stringify({
+              login: true,
+              token: data.login,
+            })
+          );
           window.location.href = "/dashboard";
         } else {
           Swal.fire({
