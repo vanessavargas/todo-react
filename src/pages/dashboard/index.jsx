@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import TodoList from "./todos/TodoIList";
 import { fetchTodos } from "./todos/TodoContext";
 import imagem from "../../assets/images/image2.png";
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const fetchAndSetTodos = async () => {
     try {
@@ -17,7 +19,20 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    fetchAndSetTodos();
+    const loginInfo = JSON.parse(localStorage.getItem("login"));
+  
+    if (loginInfo && loginInfo.login) {
+      setIsLoggedIn(true);
+      fetchAndSetTodos(loginInfo._id);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Erro",
+        text: "Você precisa estar logado para acessar esta página.",
+      }).then(() => {
+        window.location.href = "/";
+      });
+    }
   }, []);
 
   return (
@@ -47,9 +62,11 @@ const Dashboard = () => {
       </section>
 
       {/* Coluna direita */}
+      {isLoggedIn &&  (
       <section className="w-full md:w-3/4">
         <TodoList todos={todos} />
       </section>
+    )}
     </div>
   );
 };
