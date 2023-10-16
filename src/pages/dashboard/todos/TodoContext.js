@@ -38,6 +38,7 @@ export const fetchTodos = async () => {
               _id
               description
               state
+              createdOn
             }
           }
         `,

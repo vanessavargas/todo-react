@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { FaHeart, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
   const [showModal, setShowModal] = useState(false);
@@ -26,18 +28,24 @@ const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
     setShowModal(false);
   };
 
+  // formato dd/MM/yyyy
+  const dataTimestamp = parseInt(todo.createdOn, 10);
+  const formattedDate = format(new Date(dataTimestamp), "dd/MM/yyyy");
+
+  // formato dd/MMM
+  const data = new Date(parseInt(todo.createdOn, 10));
+  const formatteDate = format(data, "dd/MMM", { locale: ptBR });
+
   return (
     <div
       key={todo._id}
       className="w-64 h-48 mt-4 shadow-inner flex flex-col justify-between bg-gray-100"
     >
       <div className="px-6 pt-4 overflow-auto">
+        <p className="text-gray-700 text-xs pb-2 text-end">{formatteDate}</p>
         <p className="text-gray-700 text-base">{todo.description} </p>
       </div>
       <div className="flex justify-around gap-2 px-6 py-2">
-        <span className="inline-block bg-gray-50 rounded-full p-2">
-          <FaHeart />
-        </span>
         <span className="inline-block">
           <button
             className={`btn ${
