@@ -1,6 +1,8 @@
-//const token = JSON.parse(localStorage.getItem("login")).token;
+const isLoggedIn = localStorage.getItem("login") !== null;
+const token = isLoggedIn ? JSON.parse(localStorage.getItem("login")).token : null;
 
 export const createTodo = async (description) => {
+  console.log(token);
   const requestBody = {
     query: `
           mutation {
@@ -18,7 +20,7 @@ export const createTodo = async (description) => {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
-        //Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -53,7 +55,7 @@ export const fetchTodos = async () => {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
-        //Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -89,6 +91,7 @@ export const updateTodo = async (_id, newDescription) => {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
 
@@ -118,6 +121,7 @@ export const deleteTodo = async (_id) => {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
 
