@@ -1,16 +1,11 @@
 # To Do List - React JS
+Projeto criado como um exercício prático durante os estudos em DevLand, visando aprimorar habilidades de desenvolvimento.
 
-<div align="center">
-
-  ## 🛠️ Projeto em Andamento
-
-</div>
-
-## Preview
+## Layout
 
 <div align="center">
   <img
-    src="./src/assets/images/GitHub.png"
+    src="./src/assets/images/preview.png"
     alt="preview das telas do projeto"
   />
 </div>
@@ -20,8 +15,8 @@
 - Aplicar o Clean Code (Obrigatório) ✔️
 - React JS ✔️
 - Framework de estilo ✔️
-- Paginação de dados nas telas de consultas
-- Autorizar TODAS as requisições via token JWT
+- Paginação de dados nas telas de consultas ✔️
+- Autorizar TODAS as requisições via token JWT ✔️
 - Usar responsividade ✔️
 - Permitir que o usuário possa visualizar os dados em modo de card ou Datatable nas telas de consulta ✔️
 
@@ -42,16 +37,12 @@ project-root/
   ├── src/
   │   ├── assets/
   │   │   └── images/
-  │   │       ├── image1.jpg
-  │   │       ├── image2.jpg
-  │   │       └── GitHub.jpg
+  │   │       ├── image.png
+  │   │       └── preview.jpg
   │   ├── components/
-  │   │   └── Modal.jsx
+  │   │   ├── Modal.jsx
+  │   │   └── Pagination.jsx
   │   ├── pages/
-  │   │   ├── home/
-  │   │   │    ├── components/
-  │   │   │    │     └── LoginForm.jsx
-  │   │   │    └── index.jsx
   │   │   ├── dashboard/
   │   │   │    ├── todos/
   │   │   │    │     ├── CreateTodo.jsx
@@ -59,11 +50,15 @@ project-root/
   │   │   │    │     ├── TodoList.jsx
   │   │   │    │     └── TodoItem.jsx
   │   │   │    └── index.jsx
+  │   │   ├── home/
+  │   │   │    ├── components/
+  │   │   │    │     └── LoginForm.jsx
+  │   │   │    └── index.jsx
   │   │   └── RegisterForm.jsx
   │   ├── App.jsx
-  │   ├── routes.js
   │   ├── index.css
-  │   └── index.js
+  │   ├── index.js
+  │   └── routes.js
   ├── package.json         (configurações e dependências do projeto)
   ├── README.md            (documentação do projeto)
   ├── tailwind.config.js   (configurações do Tailwind)

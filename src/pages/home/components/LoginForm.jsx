@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "../../../components/Modal";
-import image1 from "../../../assets/images/image1.jpg";
+import image from "../../../assets/images/image.png";
 import Swal from "sweetalert2";
 
 export default function LoginForm(props) {
@@ -71,7 +71,7 @@ export default function LoginForm(props) {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-20 w-auto"
-            src={image1}
+            src={image}
             alt="Logo de Anotações"
           />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-principal-color">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import image1 from "../../assets/images/image1.jpg";
+import image from "../../assets/images/image.png";
 import LoginForm from "./components/LoginForm";
 
 const HomePage = () => {
@@ -30,7 +30,7 @@ const HomePage = () => {
       {/* Coluna direita */}
       <div className="order-1 md:order-2 flex md:flex items-center justify-center">
         <img
-          src={image1}
+          src={image}
           alt="Imagem"
           className="md:w-2/3 w-1/3 hover:md:w-3/5"
         />
