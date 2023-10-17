@@ -2,13 +2,21 @@ import React, { useState, useEffect } from "react";
 import { fetchTodos, deleteTodo, updateTodo, createTodo } from "./TodoContext";
 import TodoItem from "./TodoItem";
 import CreateTodo from "./CreateTodo";
+import Pagination from "../../../components/Pagination";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const limit = 6;
 
   const fetchAndSetTodos = async () => {
     try {
-      const todosData = await fetchTodos();
+      const todosData = await fetchTodos(limit, offset);
+      if (!todosData || todosData.length === 0) {
+        setHasMore(false);
+        return;
+      }
       setTodos(todosData);
     } catch (error) {
       console.error("Erro ao buscar as anotações:", error.message);
@@ -16,8 +24,23 @@ const TodoList = () => {
   };
 
   useEffect(() => {
-    fetchAndSetTodos();
-  }, []);
+    fetchAndSetTodos(limit, offset);
+  }, [offset]);
+
+  const handlePaginationNext = () => {
+    const newOffset = offset + limit;
+    fetchAndSetTodos(limit, newOffset);
+    setOffset(newOffset);
+  };
+
+  const handlePaginationPrev = () => {
+    if (offset >= limit) {
+      const newOffset = offset - limit;
+      fetchAndSetTodos(limit, newOffset);
+      setOffset(newOffset);
+      setHasMore(true);
+    }
+  };
 
   const handleCreateTodo = async (description) => {
     try {
@@ -62,7 +85,7 @@ const TodoList = () => {
   return (
     <>
       <CreateTodo createTodo={handleCreateTodo} />
-      <div className="w-100 mt-4 flex flex-wrap gap-2 justify-around p-3 m-2 mb-10">
+      <div className="w-100 flex flex-wrap gap-1 justify-around p-3 m-2 mb-6">
         {todos.map((todo) => (
           <TodoItem
             key={todo._id}
@@ -72,6 +95,10 @@ const TodoList = () => {
           />
         ))}
       </div>
+      <Pagination
+        onNextPage={handlePaginationNext}
+        onPrevPage={handlePaginationPrev}
+      />
     </>
   );
 };

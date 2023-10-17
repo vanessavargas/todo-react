@@ -35,11 +35,11 @@ export const createTodo = async (description) => {
   }
 };
 
-export const fetchTodos = async () => {
+export const fetchTodos = async (limit, offset) => {
   const requestBody = {
     query: `
-          {
-            todos {
+      {
+        todos (limit: ${limit}, offset: ${offset}) {
               _id
               description
               state
