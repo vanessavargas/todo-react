@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "../../../components/Modal";
 import image1 from "../../../assets/images/image1.jpg";
 import Swal from "sweetalert2";
 
 export default function LoginForm(props) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -46,10 +47,10 @@ export default function LoginForm(props) {
             "login",
             JSON.stringify({
               login: true,
-              token: data.login,
+              token: data.data.login,
             })
           );
-          window.location.href = "/dashboard";
+          navigate("/dashboard");
         } else {
           Swal.fire({
             icon: "error",
