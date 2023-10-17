@@ -1,4 +1,4 @@
-const token = JSON.parse(localStorage.getItem("login")).token;
+//const token = JSON.parse(localStorage.getItem("login")).token;
 
 export const createTodo = async (description) => {
   const requestBody = {
@@ -18,7 +18,7 @@ export const createTodo = async (description) => {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        //Authorization: `Bearer ${token}`,
       },
     });
 
@@ -53,7 +53,7 @@ export const fetchTodos = async () => {
       body: JSON.stringify(requestBody),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        //Authorization: `Bearer ${token}`,
       },
     });
 
