@@ -6,6 +6,10 @@ import imagem from "../../assets/images/image2.png";
 import Swal from "sweetalert2";
 
 const Dashboard = () => {
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
   const [todos, setTodos] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -55,7 +59,7 @@ const Dashboard = () => {
           </p>
         </div>
         <div>
-          <Link className="text-light-color text-center" to="/">
+          <Link className="text-light-color text-center" to="/" onClick={handleLogout}>
             Sair
           </Link>
         </div>
