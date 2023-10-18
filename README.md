@@ -31,7 +31,6 @@ Projeto criado como um exercício prático durante os estudos em DevLand, visand
 ```
 
 project-root/
-  ├── node_modules/       (dependências do projeto)
   ├── public/
   │   └── index.html
   ├── src/
@@ -44,11 +43,12 @@ project-root/
   │   │   └── Pagination.jsx
   │   ├── pages/
   │   │   ├── dashboard/
-  │   │   │    ├── todos/
-  │   │   │    │     ├── CreateTodo.jsx
-  │   │   │    │     ├── TodoContext.jsx
-  │   │   │    │     ├── TodoList.jsx
-  │   │   │    │     └── TodoItem.jsx
+  │   │   │    ├── components/
+  │   │   │    │    └── todos/
+  │   │   │    │         ├── CreateTodo.jsx
+  │   │   │    │         ├── TodoActions.jsx
+  │   │   │    │         ├── TodoList.jsx
+  │   │   │    │         └── TodoItem.jsx
   │   │   │    └── index.jsx
   │   │   ├── home/
   │   │   │    ├── components/

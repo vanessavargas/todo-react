@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { fetchTodos, deleteTodo, updateTodo, createTodo } from "./TodoContext";
+import { fetchTodos, deleteTodo, updateTodo, createTodo } from "./TodoActions";
 import TodoItem from "./TodoItem";
 import CreateTodo from "./CreateTodo";
-import Pagination from "../../../components/Pagination";
+import Pagination from "../../../../components/Pagination";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -85,7 +85,7 @@ const TodoList = () => {
   return (
     <>
       <CreateTodo createTodo={handleCreateTodo} />
-      <div className="w-100 flex flex-wrap gap-1 justify-around p-3 m-2 mb-6">
+      <div className="w-100 md:h-100 flex flex-wrap gap-1 justify-around p-3 m-2 mb-6">
         {todos.map((todo) => (
           <TodoItem
             key={todo._id}

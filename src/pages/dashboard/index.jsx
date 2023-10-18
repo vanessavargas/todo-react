@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import TodoList from "./todos/TodoIList";
-import { fetchTodos } from "./todos/TodoContext";
+import TodoList from "./components/todos/TodoIList";
+import { fetchTodos } from "./components/todos/TodoActions";
 import image from "../../assets/images/image.png";
 import Swal from "sweetalert2";
 
