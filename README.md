@@ -1,32 +1,33 @@
-# To Do List - React JS
-Projeto criado como um exercício prático durante os estudos em DevLand, visando aprimorar habilidades de desenvolvimento.
+# To-Do List - React JS
+
+A project created as a practical exercise during studies in DevLand, aiming to enhance development skills.
 
 ## Layout
 
 <div align="center">
   <img
     src="./src/assets/images/preview.png"
-    alt="preview das telas do projeto"
+    alt="preview of the project screens"
   />
 </div>
 
-## Requisitos
+## Requirements
 
-- Aplicar o Clean Code (Obrigatório) ✔️
+- Apply Clean Code (Mandatory) ✔️
 - React JS ✔️
-- Framework de estilo ✔️
-- Paginação de dados nas telas de consultas ✔️
-- Autorizar TODAS as requisições via token JWT ✔️
-- Usar responsividade ✔️
-- Permitir que o usuário possa visualizar os dados em modo de card ou Datatable nas telas de consulta ✔️
+- Styling framework ✔️
+- Data pagination on query screens ✔️
+- Authorize ALL requests via JWT token ✔️
+- Use responsiveness ✔️
+- Allow users to view data in card or Datatable mode on query screens ✔️
 
-## Tecnologias
+## Technologies
 
 - React JS
 - Tailwind CSS
 
-## Back End do projeto
-➪ [API To-Do List Node e GraphQL](https://github.com/vanessavargas/todo-node-graphql)
+## Back-End of the Project
+➪ [Node and GraphQL To-Do List API](https://github.com/vanessavargas/todo-node-graphql)
 
 ```
 
@@ -59,14 +60,14 @@ project-root/
   │   ├── index.css
   │   ├── index.js
   │   └── routes.js
-  ├── package.json         (configurações e dependências do projeto)
-  ├── README.md            (documentação do projeto)
-  ├── tailwind.config.js   (configurações do Tailwind)
-  └── .gitignore           (lista de arquivos a serem ignorados pelo Git)
+  ├── package.json         (project configurations and dependencies)
+  ├── README.md            (project documentation)
+  ├── tailwind.config.js   (Tailwind configurations)
+  └── .gitignore           (list of files to be ignored by Git)
 
 ```
 
 <hr>
 <div align="center">
-Desenvolvido com ❤️ por VanessaVargas
+Developed with ❤️ by VanessaVargas
 </div>
